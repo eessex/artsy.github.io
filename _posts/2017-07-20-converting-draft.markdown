@@ -63,8 +63,8 @@ When linking to an artist's page in an article, our editorial team can optionall
 
 ```html
 <h2>
-<a href="https://www.artsy.net/artist/ej-hill" class="is-follow-link">EJ Hill</a>
-<a data-id="ej-hill" class="entity-follow artist-follow"></a>
+  <a href="https://www.artsy.net/artist/ej-hill" class="is-follow-link">EJ Hill</a>
+  <a data-id="ej-hill" class="entity-follow artist-follow"></a>
 </h2>
 ```
 
@@ -106,9 +106,9 @@ Because drafts editorState is immutable, every change requires duplicating the e
 
 ### Decorators up close
 
-Now take a look at the functions our `CompositeDecorator` requires. We use our decorator to search for [entities](https://draftjs.org/docs/api-reference-entity.html)-- these are custom blocks that accept additional props, such as a link or image.
+Now take a look at the functions our `CompositeDecorator` requires. We use our decorator to search for [entities](https://draftjs.org/docs/api-reference-entity.html)-- these are used to find and render blocks that accept additional props in addition to text, such as a link or image.
 
-The `findLinkEntity` function cycles through all the blocks in our editor state, and then checks the metadata of each character looking for instances of a Link. The object has props that contain our URL, but may also include class names, name, and data attributes.
+The `findLinkEntity` function cycles through all the blocks in our editor state, and then checks the metadata of each character looking for instances of a Link. The object has props that contain our href/URL, but may also include class names, name, and data attributes.
 
 ```javascript
 import React from 'react';
